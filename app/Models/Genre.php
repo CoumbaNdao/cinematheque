@@ -8,5 +8,10 @@ class Genre
     protected $table = 'genre';
     protected $keyType = 'integer';
     protected $guarded = [];
+    public function film():hasMany
+    {
+        return $this->hasMany(Film::class, 'idgenre', 'idgenre');
+
+    }
 
 }

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Version
+use Illuminate\Database\Eloquent\Model;
+
+class Version extends Model
 {
     protected $primaryKey = 'idversion';
     protected $table = 'version';
