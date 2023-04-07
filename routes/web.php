@@ -68,9 +68,9 @@ Route::middleware(['web'])->group(function () {
 
     });
 
-    Route::prefix('')->name('')->group(static function () {
+    Route::prefix('')->group(static function () {
         Route::get('', [HomeController::class, 'index'])->name('index');
-        Route::get('/unfilm', [HomeController::class, 'unfilm'])->name('unfilm');
+        Route::get('/unfilm/{unfilm?}', [HomeController::class, 'unfilm'])->name('unfilm');
         Route::get('/evenement', [HomeController::class, 'evenement'])->name('evenement');
         Route::get('/text', [HomeController::class, 'index'])->name('index');
 

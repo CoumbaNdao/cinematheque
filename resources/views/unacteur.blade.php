@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
+    <title>Anime | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -46,14 +48,13 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="{{route('index')}}">Accueil</a></li>
-                            <li><a href="#">Acteterurs</a></li>
+                            <li><a href="">Acteurs</a></li>
                             <li><a href="{{route('evenement')}}">Evènement</a></li>
                             <li><a href="#">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
-
             <div class="col-lg-2">
                 <div class="header__right">
                     <a href="#" class="search-switch"><span class="icon_search"></span></a>
@@ -66,7 +67,58 @@
 </header>
 <!-- Header End -->
 
-@yield('content')
+
+<!-- Anime Section Begin -->
+<section class="anime-details spad">
+    <div class="container">
+        <div class="anime__details__content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="anime__details__pic set-bg">
+                        <img src="{{asset($unfilm->photo)}}">
+                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                            <h3>{{$unfilm->titre}}</h3>
+                            <span>Un film de : {{$unfilm->realisateur->prenomrealisateur}} {{$unfilm->realisateur->nomrealisateur}} </span>
+                        </div>
+                        <div class="anime__details__rating">
+                            <div class="rating">
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star-half-o"></i></a>
+                            </div>
+                            <span> {{$unfilm->getNoteFilm()}}</span>
+                        </div>
+                        <p>{{$unfilm->synopsis}}</p>
+                        <div class="anime__details__widget">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><span>Genre:</span> {{$unfilm->genre->nomgenre}} </li>
+                                        <li><span>Durée:</span> {{$unfilm->duree}} </li>
+                                        <li><span>Producteur:</span> {{$unfilm->producteur->prenomproducteur}} {{$unfilm->producteur->nomproducteur}} </li>
+                                        <li><span>Version:</span> VO </li>
+                                        <li><span>Date de sortie:</span> {{$unfilm->datesortie}}</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Anime Section End -->
 
 <!-- Footer Section Begin -->
 <footer class="footer">
@@ -77,7 +129,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="footer__logo">
-                    <a href="./index.html"><img src="img/cinespot.png" alt=""></a>
+                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -122,7 +174,6 @@
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 @stack('js')
-
 </body>
 
 </html>

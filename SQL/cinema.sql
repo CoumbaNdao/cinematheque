@@ -419,5 +419,9 @@ alter table seance
 add finseance date;
 
 
-select * from seance;
+select * from film;
 
+insert into sortir values ('idfilm', 'idversion') (9, 2);
+(10, 4), (13, 2);
+
+show tables;
